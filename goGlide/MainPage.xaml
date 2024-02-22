@@ -9,16 +9,31 @@
             Padding="30,0"
             VerticalOptions="Center">
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
-
             <Label
-                Text="Hello, World!"
+                Text="goGlide"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
+                HorizontalOptions="Center" />
+
+            <Button
+                x:Name="RegNewCar"
+                Text="New"
+                SemanticProperties.Hint="Function to register new car"
+                Clicked="RegNewCarClicked"
+                HorizontalOptions="Center" />
+
+            <Button
+                x:Name="ListAllCars"
+                Text="List"
+                SemanticProperties.Hint="Lists all cars with filter function"
+                Clicked="ListAllCarsClicked"
+                HorizontalOptions="Center" />
+
+            <Button
+                x:Name="RentOutCar"
+                Text="Rent"
+                SemanticProperties.Hint="Function to rent out a car"
+                Clicked="RentOutCarClicked"
                 HorizontalOptions="Center" />
 
             <Label
@@ -28,15 +43,7 @@
                 FontSize="18"
                 HorizontalOptions="Center" />
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
-
         </VerticalStackLayout>
     </ScrollView>
 
 </ContentPage>
-
