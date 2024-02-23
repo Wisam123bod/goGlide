@@ -14,41 +14,17 @@ public partial class MainPage : ContentPage
 	
 	private void RegNewCarClicked(object sender, EventArgs e)
 	{
-		count++;
-		/**
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
-
-		SemanticScreenReader.Announce(CounterBtn.Text);
-		*/
-	}
+        Navigation.PushAsync(new RegNewCar());
+    }
 
     private void ListAllCarsClicked(object sender, EventArgs e)
     {
-        count++;
-        /**
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
-
-		SemanticScreenReader.Announce(CounterBtn.Text);
-		*/
+        Navigation.PushAsync(new ListAllCars());
     }
 
     private void RentOutCarClicked(object sender, EventArgs e)
     {
-        count++;
-        /**
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
-
-		SemanticScreenReader.Announce(CounterBtn.Text);
-		*/
+        Navigation.PushAsync(new RentOutCar());
     }
 }
 

@@ -13,7 +13,12 @@
                 Text="goGlide"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                VerticalOptions="StartAndExpand" />
+
+            <HorizontalStackLayout
+                HorizontalOptions="CenterAndExpand"
+                Spacing="10">
 
             <Button
                 x:Name="RegNewCar"
@@ -36,12 +41,7 @@
                 Clicked="RentOutCarClicked"
                 HorizontalOptions="Center" />
 
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
+            </HorizontalStackLayout>
 
         </VerticalStackLayout>
     </ScrollView>
