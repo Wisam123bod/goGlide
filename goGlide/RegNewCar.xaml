@@ -5,8 +5,48 @@
              Title="RegNewCar">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="Registration plate number:"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+
+        <Entry
+            Placeholder="Enter text here"
+            Text="{Binding RegID}"
+            x:Name="Entry_regID" />
+
+        <Label 
+            Text="Brand:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Entry
+            Placeholder="Enter text here"
+            Text="{Binding Brand}"
+            x:Name="Entry_Brand" />
+
+        <Label 
+            Text="Model:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Entry
+            Placeholder="Enter text here"
+            Text="{Binding Model}"
+            x:Name="Entry_Model" />
+
+        <Label 
+            Text="Type:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Entry
+            Placeholder="Enter text here"
+            Text="{Binding Type}"
+            x:Name="Entry_Type" />
+
+        <Button Text="Register Car" Clicked="CreateCarButton_Clicked" />
+
+        <Label x:Name="registeredCarsLabel" /> <!--FLYTTA DENNA SEN-->
+
     </VerticalStackLayout>
 </ContentPage>
