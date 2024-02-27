@@ -1,49 +1,66 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="goGlide.MainPage">
+             x:Class="goGlide.MainPage"
+             BackgroundColor="Black">
 
     <ScrollView>
-        <VerticalStackLayout
+        <StackLayout
             Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+            Padding="30"
+            VerticalOptions="CenterAndExpand">
+
+            <!-- Rubrik -->
+            <Label
+                Text="Welcome to goGlide"
+                FontSize="36"
+                FontAttributes="Bold"
+                TextColor="White"
+                HorizontalOptions="Center" />
 
             <Label
-                Text="goGlide"
+                Text="Options"
                 SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center"
-                VerticalOptions="StartAndExpand" />
+                 TextColor="white"
+                FontSize="29"
+                HorizontalOptions="Center" />
 
-            <HorizontalStackLayout
+            <!-- Knappar för olika funktioner -->
+            <StackLayout
                 HorizontalOptions="CenterAndExpand"
                 Spacing="10">
 
-            <Button
-                x:Name="RegNewCar"
-                Text="New"
-                SemanticProperties.Hint="Function to register new car"
-                Clicked="RegNewCarClicked"
-                HorizontalOptions="Center" />
+                <Button
+                    x:Name="RegNewCar"
+                    Text="Register New Car"
+                    FontSize="18"
+                    BackgroundColor="#007BFF"
+                    TextColor="White"
+                    CornerRadius="5"
+                    Clicked="RegNewCarClicked" />
 
-            <Button
-                x:Name="ListAllCars"
-                Text="List"
-                SemanticProperties.Hint="Lists all cars with filter function"
-                Clicked="ListAllCarsClicked"
-                HorizontalOptions="Center" />
+                <Button
+                    x:Name="ListAllCars"
+                    Text="List All Cars"
+                    FontSize="18"
+                    BackgroundColor="#007BFF"
+                    TextColor="White"
+                    CornerRadius="5"
+                    Clicked="ListAllCarsClicked" />
 
-            <Button
-                x:Name="RentOutCar"
-                Text="Rent"
-                SemanticProperties.Hint="Function to rent out a car"
-                Clicked="RentOutCarClicked"
-                HorizontalOptions="Center" />
+                <Button
+                    x:Name="RentOutCar"
+                    Text="Rent Out Car"
+                    FontSize="18"
+                    BackgroundColor="#007BFF"
+                    TextColor="White"
+                    CornerRadius="5"
+                    Clicked="RentOutCarClicked" />
 
-            </HorizontalStackLayout>
+            </StackLayout>
 
-        </VerticalStackLayout>
+        </StackLayout>
     </ScrollView>
 
 </ContentPage>
+

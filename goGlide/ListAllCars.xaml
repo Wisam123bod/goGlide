@@ -3,10 +3,44 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="goGlide.ListAllCars"
              Title="ListAllCars">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ContentPage.Resources>
+        <!-- Definiera en Collection av bilar -->
+        <x:Array x:Key="Cars" Type="{x:Type x:String}">
+            <x:String>Toyota</x:String>
+            <x:String>Honda</x:String>
+            <x:String>Ford</x:String>
+            <!-- Lägg till fler bilar här om du vill -->
+        </x:Array>
+
+        <!-- Stil för listelement -->
+        <Style x:Key="CarItemStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="DarkBlue" />
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+    </ContentPage.Resources>
+    <StackLayout>
+        <!-- Rubrik -->
+        <Label Text="List of Cars" 
+               FontSize="24"
+               HorizontalOptions="Center" 
+               VerticalOptions="Start" />
+
+        <!-- ListView för att visa bilar -->
+        <ListView ItemsSource="{StaticResource Cars}" 
+                  SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="10">
+                            <!-- Bild för varje bil -->
+                            <Image Source="{Binding ImageSource}" WidthRequest="50" HeightRequest="50" />
+
+                            <!-- Text för varje bil -->
+                            <Label Text="{Binding .}" Style="{StaticResource CarItemStyle}" VerticalOptions="Center" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>
