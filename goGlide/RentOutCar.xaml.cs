@@ -1,9 +1,10 @@
-﻿namespace goGlide;
+﻿using System;
 
-public partial class RentOutCar : ContentPage
+private void RentButton_Clicked(object sender, EventArgs e)
 {
-	public RentOutCar()
-	{
-		InitializeComponent();
-	}
+    // Display a "Thank you" message
+    DisplayAlert("Thank you!", "Thank you for renting one of our cars!", "OK");
+    DisplayAlert("Procced to checkout", "Add payment method", "OK");
+}
+    }
 }
