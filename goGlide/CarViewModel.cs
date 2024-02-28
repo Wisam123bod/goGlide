@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace goGlide
 {
-	public class Car
-	{
+    public class Car
+    {
         public string RegID { get; set; }
         public string Brand { get; set; }
         public string Model { get; set; }
@@ -17,17 +17,27 @@ namespace goGlide
             Model = model;
             Type = type;
         }
+    }
 
-	}
-	public class CarViewModel
-	{
-        public List<Car> CarFleet { get; } = new List<Car>();
+    public class CarViewModel
+    {
+        private static CarViewModel _instance;
+
+        public static CarViewModel Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new CarViewModel();
+                return _instance;
+            }
+        }
+
+        public ObservableCollection<Car> CarFleet { get; } = new ObservableCollection<Car>();
 
         public void RegisterCar(Car newCar)
         {
             CarFleet.Add(newCar);
         }
     }
-
 }
-
