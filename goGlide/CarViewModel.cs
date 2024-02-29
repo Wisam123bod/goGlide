@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Collections.ObjectModel;
 
 namespace goGlide
@@ -9,6 +10,7 @@ namespace goGlide
         public string Brand { get; set; }
         public string Model { get; set; }
         public string Type { get; set; }
+        public bool IsAvailable { get; set; } = true;
 
         public Car(string regID, string brand, string model, string type)
         {
@@ -38,6 +40,11 @@ namespace goGlide
         public void RegisterCar(Car newCar)
         {
             CarFleet.Add(newCar);
+        }
+
+        public List<string> GetDistinctCarModels()
+        {
+            return CarFleet.Select(car => car.Model).Distinct().ToList();
         }
     }
 }

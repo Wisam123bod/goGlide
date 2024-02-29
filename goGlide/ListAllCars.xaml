@@ -1,29 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:goGlide"
              x:Class="goGlide.ListAllCars"
              Title="ListAllCars">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:BoolToAvailabilityConverter x:Key="BoolToAvailabilityConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <StackLayout>
-        <!-- Rubrik -->
-        <Label Text="List of Cars" 
-               FontSize="24"
-               HorizontalOptions="Center" 
-               VerticalOptions="Start" />
+        <Label Text="List of Cars" FontSize="24" HorizontalOptions="Center" VerticalOptions="Start" />
 
-        <!-- ListView för att visa bilar -->
-        <ListView x:Name="CarsListView" 
-                  SeparatorVisibility="None">
+        <ListView x:Name="CarsListView" SeparatorVisibility="None">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Orientation="Horizontal" Padding="10">
-                            <!-- Text för varje bil -->
+                            <Label Text="{Binding RegID}" VerticalOptions="Center" Margin="0,0,10,0"/>
+                            <Label Text="-" VerticalOptions="Center" Margin="0,0,10,0" />
                             <Label Text="{Binding Brand}" VerticalOptions="Center" Margin="0,0,10,0"/>
                             <Label Text="-" VerticalOptions="Center" Margin="0,0,10,0" />
                             <Label Text="{Binding Model}" VerticalOptions="Center" Margin="0,0,10,0"/>
                             <Label Text="-" VerticalOptions="Center" Margin="0,0,10,0" />
                             <Label Text="{Binding Type}" VerticalOptions="Center" Margin="0,0,10,0"/>
-                            <!-- You can add more labels here for other properties like Model, Type, etc. -->
+                            <Label Text="{Binding IsAvailable, Converter={StaticResource BoolToAvailabilityConverter}}" VerticalOptions="Center" Margin="0,0,10,0"/>
+
+                            <!-- Updated Rent button to call the OnRentClicked method -->
+                            <Button Text="Rent" IsVisible="{Binding IsAvailable}" Clicked="OnRentClicked" CommandParameter="{Binding .}" VerticalOptions="Center"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

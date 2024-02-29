@@ -48,15 +48,6 @@
                     CornerRadius="5"
                     Clicked="ListAllCarsClicked" />
 
-                <Button
-                    x:Name="RentOutCar"
-                    Text="Rent Out Car"
-                    FontSize="18"
-                    BackgroundColor="#007BFF"
-                    TextColor="White"
-                    CornerRadius="5"
-                    Clicked="RentOutCarClicked" />
-
             </StackLayout>
 
         </StackLayout>

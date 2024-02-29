@@ -2,30 +2,27 @@
 using Microsoft.Maui.Controls;
 using goGlide;
 
-namespace goGlide;
-
-public partial class MainPage : ContentPage
+namespace goGlide
 {
-	public MainPage()
-	{
-		InitializeComponent();
-	}
-
-	
-	private void RegNewCarClicked(object sender, EventArgs e)
-	{
-        Navigation.PushAsync(new RegNewCar());
-    }
-
-    private void ListAllCarsClicked(object sender, EventArgs e)
+    public partial class MainPage : ContentPage
     {
-        Navigation.PushAsync(new ListAllCars());
-    }
+        private readonly CarViewModel carViewModel;
 
-    private void RentOutCarClicked(object sender, EventArgs e)
-    {
-        Navigation.PushAsync(new RentOutCar());
+        public MainPage()
+        {
+            InitializeComponent();
+
+            carViewModel = CarViewModel.Instance;
+        }
+
+        private void RegNewCarClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new RegNewCar());
+        }
+
+        private void ListAllCarsClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ListAllCars(carViewModel));
+        }
     }
 }
-
-
