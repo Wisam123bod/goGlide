@@ -6,18 +6,26 @@
     <StackLayout>
     <!-- Checkboxes for car checking, ID card scanning, and days of rental -->
         <StackLayout Orientation="Horizontal" Spacing="10">
-            <Label Text="Check car" VerticalOptions="Center" />
+            <Label Text="Check car"
+                   VerticalOptions="Center"
+                   FontSize="18"/>
             <CheckBox x:Name="CheckCarCheckBox" />
         </StackLayout>
 
         <StackLayout Orientation="Horizontal" Spacing="10">
-            <Label Text="ID card scanned" VerticalOptions="Center" />
+            <Label Text="Scanned ID card"
+                   VerticalOptions="Center"
+                   FontSize="18" />
             <CheckBox x:Name="IDCardScannedCheckBox" />
         </StackLayout>
 
-        <Entry x:Name="DaysRentedEntry" Placeholder="Days of rental" />
+        <Entry x:Name="DaysRentedEntry"
+               FontSize="18"
+               Placeholder="Days of rental" />
 
         <!-- Confirm Rent button -->
-        <Button Text="Confirm Rent" Clicked="OnConfirmRentClicked" />
+        <Button Text="Confirm Rent"
+                Clicked="OnConfirmRentClicked"
+                BackgroundColor="#007BFF"/>
 </StackLayout>
 </ContentPage>

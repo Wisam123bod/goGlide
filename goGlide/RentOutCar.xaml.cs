@@ -12,7 +12,7 @@ namespace goGlide
         {
             InitializeComponent();
 
-            carViewModel = viewModel;
+            carViewModel = CarViewModel.Instance;
             this.selectedCar = selectedCar;
 
             // Set the binding context to this page
@@ -28,10 +28,11 @@ namespace goGlide
             // Validate and get the number of days rented
             if (int.TryParse(DaysRentedEntry.Text, out int daysRented))
             {
-                // Update car availability status
-                selectedCar.IsAvailable = false;
+                // Toggle availability
+                selectedCar.IsAvailable = !selectedCar.IsAvailable;
 
-                // Perform other actions as needed
+                // Update button text
+                ((Button)sender).Text = selectedCar.RentButtonText;
 
                 // Display a success popup
                 await DisplayAlert("Success", "Car successfully rented out", "OK");

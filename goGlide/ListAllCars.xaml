@@ -2,31 +2,63 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:goGlide"
              x:Class="goGlide.ListAllCars"
-             Title="ListAllCars">
+             Title="">
     <ContentPage.Resources>
         <ResourceDictionary>
             <local:BoolToAvailabilityConverter x:Key="BoolToAvailabilityConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <StackLayout>
-        <Label Text="List of Cars" FontSize="24" HorizontalOptions="Center" VerticalOptions="Start" />
+        <Label Text="Our Car Fleet" FontSize="24" HorizontalOptions="Center" VerticalOptions="Start" />
 
         <ListView x:Name="CarsListView" SeparatorVisibility="None">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Orientation="Horizontal" Padding="10">
-                            <Label Text="{Binding RegID}" VerticalOptions="Center" Margin="0,0,10,0"/>
-                            <Label Text="-" VerticalOptions="Center" Margin="0,0,10,0" />
-                            <Label Text="{Binding Brand}" VerticalOptions="Center" Margin="0,0,10,0"/>
-                            <Label Text="-" VerticalOptions="Center" Margin="0,0,10,0" />
-                            <Label Text="{Binding Model}" VerticalOptions="Center" Margin="0,0,10,0"/>
-                            <Label Text="-" VerticalOptions="Center" Margin="0,0,10,0" />
-                            <Label Text="{Binding Type}" VerticalOptions="Center" Margin="0,0,10,0"/>
-                            <Label Text="{Binding IsAvailable, Converter={StaticResource BoolToAvailabilityConverter}}" VerticalOptions="Center" Margin="0,0,10,0"/>
+                            <Label Text="{Binding RegID}"
+                                   VerticalOptions="Center"
+                                   FontSize="18"
+                                   Margin="0,0,10,0"/>
+                            <Label Text="-"
+                                   VerticalOptions="Center"
+                                   FontSize="18"
+                                   Margin="0,0,10,0" />
+                            <Label Text="{Binding Brand}"
+                                   VerticalOptions="Center"
+                                   FontSize="18"
+                                   Margin="0,0,10,0"/>
+                            <Label Text="-"
+                                   VerticalOptions="Center"
+                                   FontSize="18"
+                                   Margin="0,0,10,0" />
+                            <Label Text="{Binding Model}"
+                                   VerticalOptions="Center"
+                                   FontSize="18"
+                                   Margin="0,0,10,0"/>
+                            <Label Text="-"
+                                   VerticalOptions="Center"
+                                   FontSize="18"
+                                   Margin="0,0,10,0" />
+                            <Label Text="{Binding Type}"
+                                   VerticalOptions="Center"
+                                   FontSize="18"
+                                   Margin="0,0,10,0"/>
+                            <Label Text="{Binding StatusText}"
+                                   VerticalOptions="Center"
+                                   FontSize="18"
+                                   Margin="0,0,10,0"/>
 
                             <!-- Updated Rent button to call the OnRentClicked method -->
-                            <Button Text="Rent" IsVisible="{Binding IsAvailable}" Clicked="OnRentClicked" CommandParameter="{Binding .}" VerticalOptions="Center"/>
+                            <Button x:Name="ToggleRentButton"
+                                    Text="{Binding RentButtonText}"
+                                    Clicked="OnRentClicked"
+                                    CommandParameter="{Binding .}"
+                                    VerticalOptions="Center"
+                                    FontSize="18"
+                                    BackgroundColor="{Binding StatusColor}"
+                                    TextColor="White"
+                                    CornerRadius="5"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
