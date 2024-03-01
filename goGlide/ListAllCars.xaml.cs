@@ -30,7 +30,17 @@ namespace goGlide
         private async void OnRentClicked(object sender, EventArgs e)
         {
             var selectedCar = ((Button)sender).CommandParameter as Car;
-            await Navigation.PushAsync(new RentOutCar(carViewModel, selectedCar));
+
+            if (selectedCar.IsAvailable)
+            {
+                // If the car is available, navigate to RentOutCar page
+                await Navigation.PushAsync(new RentOutCar(carViewModel, selectedCar));
+            }
+            else
+            {
+                // If the car is not available, navigate to SetAvailable page
+                await Navigation.PushAsync(new SetAvailable(carViewModel, selectedCar));
+            }
 
             // Notify that the StatusText property has changed
             OnPropertyChanged(nameof(selectedCar.StatusText));

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="goGlide.SetAvailable"
+             Title="SetAvailable">
+    <StackLayout>
+    <!-- Checkboxes for car checking, ID card scanning, and days of rental -->
+        <StackLayout Orientation="Horizontal" Spacing="10">
+            <Label Text="Check car"
+                   VerticalOptions="Center"
+                   FontSize="18"/>
+            <CheckBox x:Name="CheckCarCheckBox" />
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" Spacing="10">
+            <Label Text="Has paid"
+                   VerticalOptions="Center"
+                   FontSize="18" />
+            <CheckBox x:Name="IDCardScannedCheckBox" />
+        </StackLayout>
+
+        <!-- Confirm Rent button -->
+        <Button Text="Confirm"
+                Clicked="OnConfirmClicked"
+                BackgroundColor="#007BFF"/>
+</StackLayout>
+</ContentPage>
